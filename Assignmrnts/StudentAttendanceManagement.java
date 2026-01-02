@@ -1,3 +1,5 @@
+// Assignment 1: Student Attendance Management System
+// Name :Pratik Satpute
 import java.util.*;
 
 class StudentAttendanceSystem {
@@ -7,6 +9,7 @@ class StudentAttendanceSystem {
     Stack<Integer> undoStack = new Stack<>();
     List<Integer> recordList = new ArrayList<>();
 
+    // record attendance when a student enters the classroom in order
     void markAttendance(int studentId) {
         if (presentSet.contains(studentId)) {
             System.out.println("Student " + studentId + " is already marked present.");
@@ -21,6 +24,7 @@ class StudentAttendanceSystem {
         System.out.println("Attendance marked for student ID : " + studentId);
     }
 
+    //cheak a particular student is present in classroom or not
     void checkPresence(int studentId) {
         if (presentSet.contains(studentId)) {
             System.out.println("Student " + studentId + " is Present.");
@@ -29,12 +33,12 @@ class StudentAttendanceSystem {
         }
     }
 
+    // remove the last student attendance entry
     void undoLastAttendance() {
         if (undoStack.isEmpty()) {
             System.out.println("No attendance to undo.");
             return;
         }
-
         int lastId = undoStack.pop();
         presentSet.remove(lastId);
         entryQueue.remove(lastId);
@@ -43,6 +47,7 @@ class StudentAttendanceSystem {
         System.out.println("Last attendance unmarked for student ID:" + lastId);
     }
 
+    // show all present students in order
     void displayAttendance() {
         if (recordList.isEmpty()) {
             System.out.println("No students are marked present");
