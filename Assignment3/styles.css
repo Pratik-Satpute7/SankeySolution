@@ -1,0 +1,174 @@
+body {
+    background-image: url("image/ToDoBg.avif"); 
+    background-size: cover;        
+    background-position: center;   
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 500px;
+    width: 80%;
+    background: #ffff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+h1 {
+    text-align: center;
+    color: rgb(75, 74, 74);
+    margin-bottom: 5px;
+    border-bottom: 2px solid #555;
+}
+
+.joke {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 5px;
+    text-align: center;
+    font-style: italic;
+    color: #555;
+}
+
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#task-input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+#add-task-btn {
+    padding: 10px 20px;
+    background: #000;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.progress-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f0f0f0;
+    border-radius: 8px;
+}
+
+.progress-section h2 {
+    margin-top: 0;
+    color: rgb(75, 74, 74);
+}
+
+#task-list {
+    list-style: none;
+    padding: 0;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    transition: background 0.3s;
+}
+
+.task-item:hover {
+    background: #f9f9f9;
+}
+
+.task-text {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.task-text.completed {
+    text-decoration: line-through;
+    color: #fc0000;
+}
+
+.task-status {
+    font-size: 14px;
+    color: #322727;
+    margin-right: 10px;
+}
+
+.task-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.complete-btn {
+    background: rgb(26, 201, 26);
+    color: #fff;
+}
+
+.complete-btn:hover {
+    background: rgb(18, 134, 18);
+}
+
+.edit-btn {
+    background:rgba(255, 221, 0, 0.868);
+    color: #000;
+}
+
+.edit-btn:hover {
+    background: rgba(255, 221, 0, 0.628);
+}
+
+.delete-btn {
+    background:rgb(228, 44, 44);
+    color: #fff;
+}
+
+.delete-btn:hover {
+    background: rgb(220, 0, 0);
+}
+
+@media (max-width: 600px) {
+    .input-section {
+        flex-direction: column;
+    }
+    
+    .task-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .task-buttons {
+        margin-top: 10px;
+    }
+}
+.progress-bar-container {
+    width: 100%;
+    height: 10px;
+    background-color: #eee;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+#progress-bar {
+    height: 50%;
+    width: 0%;
+    background-color: rgb(67, 246, 67);
+}
