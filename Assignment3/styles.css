@@ -118,32 +118,16 @@ button {
     font-size: 14px;
 }
 
-.complete-btn {
-    background: rgb(26, 201, 26);
+.completebtn {
+    background: rgb(35, 208, 35);
     color: #fff;
 }
 
-.complete-btn:hover {
+.completebtn:hover {
     background: rgb(18, 134, 18);
 }
 
-.edit-btn {
-    background:rgba(255, 221, 0, 0.868);
-    color: #000;
-}
 
-.edit-btn:hover {
-    background: rgba(255, 221, 0, 0.628);
-}
-
-.delete-btn {
-    background:rgb(228, 44, 44);
-    color: #fff;
-}
-
-.delete-btn:hover {
-    background: rgb(220, 0, 0);
-}
 
 @media (max-width: 600px) {
     .input-section {
