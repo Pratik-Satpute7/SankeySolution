@@ -36,13 +36,13 @@ h1 {
     color: #555;
 }
 
-.input-section {
+.joke {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
 }
 
-#task-input {
+#input {
     flex: 1;
     padding: 10px;
     border: 2px solid #ddd;
@@ -51,7 +51,7 @@ h1 {
     transition: border-color 0.3s;
 }
 
-#add-task-btn {
+#addBtn {
     padding: 10px 20px;
     background: #000;
     color: #fff;
@@ -59,24 +59,24 @@ h1 {
     font-size: 16px;
 }
 
-.progress-section {
+.trackingSection {
     margin-bottom: 20px;
     padding: 15px;
     background: #f0f0f0;
     border-radius: 8px;
 }
 
-.progress-section h2 {
+.trackingSection h2 {
     margin-top: 0;
     color: rgb(75, 74, 74);
 }
 
-#task-list {
+#tList {
     list-style: none;
     padding: 0;
 }
 
-.task-item {
+.taskElement {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -85,7 +85,7 @@ h1 {
     transition: background 0.3s;
 }
 
-.task-item:hover {
+.taskElement:hover {
     background: #f9f9f9;
 }
 
@@ -150,7 +150,7 @@ button {
         flex-direction: column;
     }
     
-    .task-item {
+    .taskElement {
         flex-direction: column;
         align-items: flex-start;
     }
@@ -159,7 +159,7 @@ button {
         margin-top: 10px;
     }
 }
-.progress-bar-container {
+.trackingbarsection {
     width: 100%;
     height: 10px;
     background-color: #eee;
@@ -167,7 +167,7 @@ button {
     margin-top: 10px;
 }
 
-#progress-bar {
+#trackingbar {
     height: 50%;
     width: 0%;
     background-color: rgb(67, 246, 67);

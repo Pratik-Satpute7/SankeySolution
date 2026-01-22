@@ -1,34 +1,33 @@
-const tInput = document.getElementById("task-input");
-const addBtn = document.getElementById("add-task-btn");
-const tList = document.getElementById("task-list");
-const totalTasks = document.getElementById("total-tasks");
-const completedTasks = document.getElementById("completed-tasks");
-const jokeSection = document.getElementById("joke-section");
-const progressBar = document.getElementById("progress-bar");
+const jokeSection = document.getElementById("joke");
+const tInput = document.getElementById("input");
+const addBtn = document.getElementById("addBtn");
+const tList = document.getElementById("tList");
+const trackingbar = document.getElementById("trackingbar");
+const totalTasks = document.getElementById("total");
+const completedTasks = document.getElementById("tTomplete");
+
 
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-// Save tasks
 function saveTasks() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-// Display tasks
 function displayTasks() {
   tList.innerHTML = "";
 
   tasks.forEach(task => {
     const li = document.createElement("li");
-    li.className = "task-item";
+    li.className = "taskElement";
 
     li.innerHTML = `
       <span class="task-text ${task.completed ? "completed" : ""}">
         ${task.text}
       </span>
       <div class="task-buttons">
-        <button class="complete-btn" data-id="${task.id}">✔</button>
-        <button class="edit-btn" data-id="${task.id}">Edit</button>
-        <button class="delete-btn" data-id="${task.id}">Delete </button>
+        <button class="completebtn" data-id="${task.id}">✔</button>
+        <button class="editbtn" data-id="${task.id}">Edit</button>
+        <button class="deletebtn" data-id="${task.id}">Delete </button>
       </div>
     `;
 
@@ -45,9 +44,8 @@ function updateProgress() {
   totalTasks.textContent = total;
   completedTasks.textContent = completed;
 
-  progressBar.style.width = percent + "%";
+  trackingbar.style.width = percent + "%";
 }
-
 
 addBtn.addEventListener("click", () => {
   const text = tInput.value.trim();
@@ -62,23 +60,22 @@ addBtn.addEventListener("click", () => {
   displayTasks();
 });
 
-// Event delegation for task buttons
 tList.addEventListener("click", e => {
   const id = Number(e.target.dataset.id);
   const task = tasks.find(t => t.id === id);
 
   if (!task) return;
 
-  if (e.target.classList.contains("complete-btn")) {
+  if (e.target.classList.contains("completebtn")) {
     task.completed = !task.completed;
   }
 
-  if (e.target.classList.contains("edit-btn")) {
+  if (e.target.classList.contains("editbtn")) {
     const newText = prompt("Edit task:", task.text);
     if (newText) task.text = newText.trim();
   }
 
-  if (e.target.classList.contains("delete-btn")) {
+  if (e.target.classList.contains("deletebtn")) {
     tasks = tasks.filter(t => t.id !== id);
   }
 
@@ -90,7 +87,6 @@ async function fetchJoke() {
   try {
     const res = await fetch("https://api.chucknorris.io/jokes/random");
     const data = await res.json();
-
     const jokeParagraph = jokeSection.querySelector("p");
     jokeParagraph.textContent = data.value;
   } catch {
